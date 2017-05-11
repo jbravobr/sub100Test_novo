@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="sub100DemoApp.Views.ImageGalleryPreviewPage" 
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" 
+    xmlns:iconize="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize" 
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
+    prism:ViewModelLocator.AutowireViewModel="True"
+    xmlns:local="clr-namespace:sub100DemoApp;assembly=sub100DemoApp">
+	<ContentPage.Content>
+        <Grid>
+        <BoxView HorizontalOptions="FillAndExpand"
+                 VerticalOptions="FillAndExpand"
+                 BackgroundColor="Black"
+                 Opacity="5" />
+
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <ffimageloading:CachedImage HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand"
+                                        FadeAnimationEnabled="true"
+                                        Source="{Binding Source}" />
+
+            <!--  CLOSE ICON  -->
+            <StackLayout Padding="20">
+                <iconize:IconLabel
+                       WidthRequest="30"
+                       HeightRequest="30"
+                       HorizontalOptions="End"
+                       VerticalOptions="Start"
+                       FontSize="30"
+                       Style="{x:Static local:Theme.FontIcon}"
+                       Text="{x:Static local:FontAwesomeFont.Close}"
+                       TextColor="White">
+                   <iconize:IconLabel.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OnCloseButtonCommand}" />
+                    </iconize:IconLabel.GestureRecognizers>
+                </iconize:IconLabel>
+            </StackLayout>
+        </Grid>
+    </Grid>
+        
+</ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+    xmlns:local="clr-namespace:sub100DemoApp;assembly=sub100DemoApp"
+    xmlns:templates="clr-namespace:sub100DemoApp.Views.Templates.ListViewTemplates;assembly=sub100DemoApp"
+    Title="Imóveis"
+    x:Class="sub100DemoApp.Views.MainPage"
+    prism:ViewModelLocator.AutowireViewModel="True">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ItemTappedEventArgsConverter x:Key="itemTappedEventArgsConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding OrderByCommand}"
+                     Icon="sorting.png"
+                     Order="Primary"
+                     Priority="0" />
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <ListView x:Name="carsListView"
+                  CachingStrategy="RecycleElement"
+                  HasUnevenRows="true"
+                  ItemsSource="{Binding Imoveis}"
+                  SeparatorVisibility="None">
+            <ListView.Behaviors>
+                <b:EventToCommandBehavior Command="{Binding ItemTappedCommand}"
+                                          EventArgsConverter="{StaticResource itemTappedEventArgsConverter}"
+                                          EventName="ItemTapped" />
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <templates:CustomItemTemplate />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

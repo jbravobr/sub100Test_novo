@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:sub100DemoApp;assembly=sub100DemoApp"
+    xmlns:iconize="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+    x:Class="sub100DemoApp.Views.Templates.HeadersTemplates.ImageGalleryHeaderStyleTemplate">
+    <StackLayout
+            Orientation="Horizontal">
+        <iconize:IconLabel
+            FontSize="18"
+            Style="{x:Static local:Theme.SocialHeaderStyle}"
+            Text="{x:Static local:FontAwesomeFont.Camera}"
+            FontFamily="{x:Static local:Theme.IconsFontFamily}"
+            TranslationY="1"/>
+        <Label
+            Style="{x:Static local:Theme.SocialHeaderStyle}"
+            Text="&#032; FOTOS"/>
+    </StackLayout>
+</ContentView>
