@@ -3,6 +3,7 @@
 	public enum EnumAPIPath
 	{
 		imoveis,
-		details
+		details,
+        contato
 	}
 }

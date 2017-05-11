@@ -36,6 +36,7 @@
                       RowSpacing="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
@@ -265,6 +266,15 @@
                                 </ListView.ItemTemplate>
                             </ListView>
                         </StackLayout>
+                    </Grid>
+                    <Grid Grid.Row="2" Padding="6">
+                        <Button 
+                            Text="Enviar Mensagem" 
+                            BackgroundColor="#FFAE19" 
+                            TextColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="End"
+                            Command="{Binding SendCommand}" />
                     </Grid>
                 </Grid>
             </ScrollView>
